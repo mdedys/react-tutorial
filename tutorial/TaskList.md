@@ -1,5 +1,9 @@
 # Task List
 
+This tutorial is based on building the following: https://todomvc.com/examples/react/#/
+
+The final solution can be found on `solution` branch
+
 The follow tasks can be completed to make a functional todo list react app.
 
 Part 1. Implement a functional input field
