@@ -24,13 +24,24 @@ const Title = styled.h1`
 `;
 
 function App() {
+  const [todoValue, setValue] = React.useState("");
+
+  const onEnter = () => {
+    setValue("");
+  };
+
   return (
     <View className="view">
       <Content className="view content">
         <Title>todo</Title>
         <List>
           <ListItem>
-            <Input placeholder="What needs to be done" />
+            <Input
+              placeholder="What needs to be done"
+              value={todoValue}
+              onChange={(v) => setValue(v)}
+              onEnter={onEnter}
+            />
           </ListItem>
         </List>
       </Content>

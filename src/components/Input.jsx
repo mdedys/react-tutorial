@@ -39,9 +39,24 @@ const StyledInput = styled.input`
 `;
 
 /**
- * Props - Any html attribute that is supported
- * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input
+ * Props
+ * placeholder string
+ * value string
+ * onChange(string): void
  */
 export default function Input(props) {
-  return <StyledInput {...props} />;
+  const onEnter = (evt) => {
+    if (evt.keyCode === 13) {
+      props.onEnter(evt);
+    }
+  };
+
+  return (
+    <StyledInput
+      placeholder={props.placeholder}
+      value={props.value}
+      onChange={(evt) => props.onChange(evt.target.value)}
+      onKeyDown={onEnter}
+    />
+  );
 }
