@@ -7,6 +7,11 @@ const Container = styled.div`
   padding: 16px;
 `;
 
+/**
+ * Props - Any HTML attributes supported by li
+ * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/li
+ */
 export default function ListItem(props) {
-  return <Container>{props.children}</Container>;
+  const { children, ...rest } = props;
+  return <Container {...rest}>{children}</Container>;
 }
