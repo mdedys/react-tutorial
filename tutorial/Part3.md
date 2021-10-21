@@ -150,4 +150,4 @@ useEffect(() => { ...work }, [depA, depB])
 Homework:
 
 1. Implement `Input.jsx` to update as a user types. 
-2. Add a prop to `Input.jsx` that when `enter` key is pressed. The value of the input field is passed up to a parent component. Hint. Prop should be a function
+2. When user presses `Enter` while focused on the input clear the input field
