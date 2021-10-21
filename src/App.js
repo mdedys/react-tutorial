@@ -4,6 +4,7 @@ import Input from "./components/Input";
 import List from "./components/List";
 import ListItem from "./components/ListItem";
 import Todo from "./components/Todo";
+import ListFooter from "./components/ListFooter";
 
 const View = styled.div`
   width: 100%;
@@ -49,6 +50,7 @@ function App() {
           {todos.map((todo) => (
             <Todo key={todo} label={todo} />
           ))}
+          {todos.length > 0 && <ListFooter count={todos.length} />}
         </List>
       </Content>
     </View>

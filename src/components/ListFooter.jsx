@@ -9,7 +9,19 @@ const Container = styled(ListItem)`
   padding: 16px 8px;
 `;
 
+const Count = styled.span`
+  font-size: 0.875rem;
+  font-weight: 100;
+`;
+
+/**
+ * Props
+ * count
+ */
 export default function ListFooter(props) {
-  const { children, ...rest } = props;
-  return <Container {...rest}>{children}</Container>;
+  return (
+    <Container>
+      <Count>{props.count} items left</Count>
+    </Container>
+  );
 }
