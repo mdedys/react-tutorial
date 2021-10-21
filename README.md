@@ -2,11 +2,6 @@
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Prerequisites
-
-The following must be installed:
-1. NodeJS - https://nodejs.org/en/
-2. Yarn - https://yarnpkg.com/getting-started/install
 
 ## Available Scripts
 
