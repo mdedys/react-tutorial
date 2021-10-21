@@ -3,6 +3,7 @@ import styled from "styled-components";
 import Input from "./components/Input";
 import List from "./components/List";
 import ListItem from "./components/ListItem";
+import Todo from "./components/Todo";
 
 const View = styled.div`
   width: 100%;
@@ -24,9 +25,11 @@ const Title = styled.h1`
 `;
 
 function App() {
+  const [todos, setTodos] = React.useState([]);
   const [todoValue, setValue] = React.useState("");
 
   const onEnter = () => {
+    setTodos([...todos, todoValue]);
     setValue("");
   };
 
@@ -35,7 +38,7 @@ function App() {
       <Content className="view content">
         <Title>todo</Title>
         <List>
-          <ListItem>
+          <ListItem key="input-field">
             <Input
               placeholder="What needs to be done"
               value={todoValue}
@@ -43,6 +46,9 @@ function App() {
               onEnter={onEnter}
             />
           </ListItem>
+          {todos.map((todo) => (
+            <Todo key={todo} label={todo} />
+          ))}
         </List>
       </Content>
     </View>
