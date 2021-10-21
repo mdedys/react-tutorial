@@ -150,4 +150,5 @@ useEffect(() => { ...work }, [depA, depB])
 Homework:
 
 1. Implement `Input.jsx` to update as a user types. 
-2. When user presses `Enter` while focused on the input clear the input field
+2. When user presses `Enter` while focused on the input clear the input field.
+   - Hint: Enter keycode is `13`
