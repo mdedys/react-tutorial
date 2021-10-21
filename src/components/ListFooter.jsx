@@ -14,6 +14,14 @@ const Count = styled.span`
   font-weight: 100;
 `;
 
+/**
+ * Props
+ * count
+ */
 export default function ListFooter(props) {
-  return <Container></Container>;
+  return (
+    <Container>
+      <Count>{props.count} items left</Count>
+    </Container>
+  );
 }
