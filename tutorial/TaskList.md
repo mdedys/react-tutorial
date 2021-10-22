@@ -24,10 +24,20 @@ Hint - Enter keycode is `13`
 - Add a button with an X icon to a todo list item
 - When user clicks X button, remove the todo
 
+```javascript
+// x-icon
+import { AiOutlineClose } from "react-icons/ai";
+```
+
 **Part 4. Completing todos**
 
 - Add a button to todo that allows a user to complete a todo
    - Button should have a checkmark when marked completed
+
+```javascript
+// checkmark-icon
+import { AiOutlineCheck } from "react-icons/ai";
+```
 
 **Part 5. Filtering**
 
