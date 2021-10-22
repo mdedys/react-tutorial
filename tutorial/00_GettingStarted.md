@@ -27,6 +27,7 @@ The following must be installed:
   - Install Ext: npm Intellisense
 4. Download or Clone this repo
   - Download Link: https://github.com/mdedys/react-tutorial/archive/refs/heads/main.zip
+5. Run the command `yarn install` in the folder using terminal, commandline, etc
 
 ## Javascript (JS) Fundamentals
 
