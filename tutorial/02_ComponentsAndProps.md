@@ -45,3 +45,46 @@ React is pretty flexible but it has a single strict rule:
 > All React components must act like pure functions with respect to their props.
 
 A pure function is a functions that do not change the inputs and always return the same result for the same inputs.
+
+## Events
+
+Handling events with React elements is very similar to handling events on DOM elements. There are some syntax differences:
+
+- React events are named using camelCase, rather than lowercase.
+- With JSX you pass a function as the event handler, rather than a string.
+
+```javascript
+function onClickActivate(evt) {...}
+<button onClick={onClickActivate}>Activate Lasers </button>
+
+// Passes custom value to function
+function onClickActivate(activated) {...}
+<button onClick={() => onClickActivate(true)}>Activate Lasers </button>
+```
+
+## Pass data between Children + Parents
+
+Many times you need to pass data between child and parent. Passing data to children is simple and done through Props as explained above. To pass data back up to a parent, the best approach is too pass a function as a prop that can be called by the child component. This allows the child component to call this function and pass the neceassry data required. This is very common when you have multiple children who share some piece of data that is stored at the parent.
+
+```javascript
+function Parent() {
+  const [state, setState] = React.useState("value")
+
+  const onClick = (data) => setState(data)
+
+  return (
+    <div>
+      <Child1 onClick={onClick} />
+      <Child2 onClick={onClick} />
+    </div>
+  )
+}
+
+function Child1(props) {
+  return <button onClick={() => props.onClick("One")}>Click One</button>
+}
+
+function Child2(props) {
+  return <button onClick={() => props.onClick("Two")}>Click Two</button>
+}
+```
