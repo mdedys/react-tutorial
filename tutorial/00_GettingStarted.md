@@ -25,6 +25,8 @@ The following must be installed:
   - Install Ext: vscode-styled-components
   - Install Ext: Path Intellisense
   - Install Ext: npm Intellisense
+4. Download or Clone this repo
+  - Download Link: https://github.com/mdedys/react-tutorial/archive/refs/heads/main.zip
 
 ## Javascript (JS) Fundamentals
 
@@ -157,6 +159,11 @@ if ( count > 5) {
 }
 
 // will print count is 5
+
+// another example
+const isTrue = count > 5
+
+const variable = count > 5 ? "greater" : "less"
 ```
 
 ## Optional Deep Dive:
