@@ -30,8 +30,18 @@ function App() {
   const [todoValue, setValue] = React.useState("");
 
   const onEnter = () => {
-    setTodos([...todos, todoValue]);
+    setTodos([...todos, { id: "", label: todoValue }]);
     setValue("");
+  };
+
+  const onRemove = (todo) => {
+    const next = todos.reduce((list, cur) => {
+      if (cur.id !== todo.id) {
+        list.push(cur);
+      }
+      return list;
+    }, []);
+    setTodos(next);
   };
 
   return (
@@ -48,7 +58,7 @@ function App() {
             />
           </ListItem>
           {todos.map((todo) => (
-            <Todo key={todo} label={todo} />
+            <Todo key={todo.id} todo={todo} onRemove={onRemove} />
           ))}
           {todos.length > 0 && <ListFooter count={todos.length} />}
         </List>
