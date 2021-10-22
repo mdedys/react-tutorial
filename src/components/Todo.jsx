@@ -45,7 +45,7 @@ const TodoListItem = styled(ListItem)`
 `;
 
 const Text = styled.span`
-  color: ${(props) => (props.completed ? "#e6e6e6" : "#000")};
+  color: ${(props) => (props.completed ? "#e6e6e6" : "#4d4d4d")};
   text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
   transition: all 500ms ease-in;
 `;

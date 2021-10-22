@@ -26,6 +26,7 @@ const Title = styled.h1`
 `;
 
 function App() {
+  const [filter, setFilter] = React.useState("all");
   const [todos, setTodos] = React.useState([]);
   const [todoValue, setValue] = React.useState("");
 
@@ -72,15 +73,34 @@ function App() {
               onEnter={onEnter}
             />
           </ListItem>
-          {todos.map((todo) => (
-            <Todo
-              key={todo.id}
-              todo={todo}
-              onRemove={onRemove}
-              onCompleted={onCompleted}
+          {todos
+            .filter((todo) => {
+              if (filter === "all") {
+                return true;
+              }
+              if (filter === "active" && !todo.completed) {
+                return true;
+              }
+              if (filter === "completed" && todo.completed) {
+                return true;
+              }
+              return false;
+            })
+            .map((todo) => (
+              <Todo
+                key={todo.id}
+                todo={todo}
+                onRemove={onRemove}
+                onCompleted={onCompleted}
+              />
+            ))}
+          {todos.length > 0 && (
+            <ListFooter
+              count={todos.filter((todo) => !todo.completed).length}
+              filter={filter}
+              onClickFilter={(f) => setFilter(f)}
             />
-          ))}
-          {todos.length > 0 && <ListFooter count={todos.length} />}
+          )}
         </List>
       </Content>
     </View>
