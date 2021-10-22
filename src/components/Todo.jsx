@@ -1,10 +1,10 @@
 import React from "react";
 import styled from "styled-components";
-import { AiOutlineClose } from "react-icons/ai";
+import { AiOutlineClose, AiOutlineCheck } from "react-icons/ai";
 
 import ListItem from "./ListItem";
 
-const DeleteButton = styled.button`
+const Button = styled.button`
   align-items: center;
   background-color: transparent;
   border-radius: 100%;
@@ -22,12 +22,37 @@ const DeleteButton = styled.button`
   }
 `;
 
+const CheckMarkButton = styled(Button)`
+  border: 1px solid #e6e6e6;
+  color: green;
+  font-size: 20px;
+  height: 40px;
+  width: 40px;
+  margin-right: 24px;
+  padding: 0;
+
+  &:hover {
+    background: transparent;
+  }
+`;
+
 const TodoListItem = styled(ListItem)`
   align-items: center;
   display: flex;
   justify-content: space-between;
   padding-right: 24px;
   min-height: 56px;
+`;
+
+const Text = styled.span`
+  color: ${(props) => (props.completed ? "#e6e6e6" : "#000")};
+  text-decoration: ${(props) => (props.completed ? "line-through" : "none")};
+  transition: all 500ms ease-in;
+`;
+
+const Group = styled.div`
+  align-items: center;
+  display: flex;
 `;
 
 /**
@@ -43,11 +68,20 @@ export default function Todo(props) {
       onMouseEnter={() => setShowRemove(true)}
       onMouseLeave={() => setShowRemove(false)}
     >
-      {props.todo.label}
+      <Group>
+        <CheckMarkButton
+          onClick={() =>
+            props.onCompleted(props.todo.id, !props.todo.completed)
+          }
+        >
+          {props.todo.completed && <AiOutlineCheck />}
+        </CheckMarkButton>
+        <Text completed={props.todo.completed}>{props.todo.label}</Text>
+      </Group>
       {showRemove && (
-        <DeleteButton onClick={() => props.onRemove(props.todo)}>
+        <Button onClick={() => props.onRemove(props.todo)}>
           <AiOutlineClose />
-        </DeleteButton>
+        </Button>
       )}
     </TodoListItem>
   );
